@@ -71,35 +71,20 @@ nav ul li a{
 .luffy {
     margin-left: 10%;
     max-width: 50%;
-    animation: luffyRotate 2s ease-in-out infinite,
-                luffyTranslate 2s ease-in-out infinite;
+    animation: luffyAnimate 2.5s cubic-bezier(0.1, 0, 0.9, 1) infinite;
+}
 
-}
-@keyframes luffyRotate {
+@keyframes luffyAnimate {
     0%, 100% {
-        transform: rotate(-30deg);
+        transform: rotate(-30deg) translateX(-10%);
     }
     25% {
-        transform: rotate(30deg);
+        transform: rotate(30deg) translateX(10%);
     }
     50% {
-        transform: rotate(-30deg);
+        transform: rotate(-30deg) translateX(-10%);
     }
     75% {
-        transform: rotate(30deg);
-    }
-}
-@keyframes luffyTranslate {
-    0%, 100% {
-        transform: translateX(-10%);
-    }
-    25% {
-        transform: translateX(10%);
-    }
-    50% {
-        transform: translateX(-10%);
-    }
-    75% {
-        transform: translateX(10%);
+        transform: rotate(30deg) translateX(10%);
     }
 }
