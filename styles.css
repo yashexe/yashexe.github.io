@@ -57,34 +57,53 @@ nav ul li a{
     
     border-radius: 20px;
     margin: auto;
-    padding: 15%;
+    padding: 10%;
  
-    align-items: center;
+    /* align-items: center; */
     display: flex;
+}
+.bio {
+    justify-content: center !important;
+    
+    max-width: 50%;
 }
 .sentence {
     color: white;
     font-weight: bold;
-    justify-content: center !important;
     font-size: 1em;
+}
+.smallSentence {
+    color: rgb(211, 210, 210);
+    font-size: 0.7em;
+}
+.aboutMe {
+    color: white;
+    font-weight: bold;
+    padding-top: 5%;
+    font-size: 0.9em;
+
+    background-color: rgb(211, 210, 210);
+}
+.imageHolder {
+    max-width: 50%;
 }
 .luffy {
     margin-left: 10%;
-    max-width: 50%;
+    max-width: 100%;
     animation: luffyAnimate 2.5s cubic-bezier(0.1, 0, 0.9, 1) infinite;
 }
 
 @keyframes luffyAnimate {
     0%, 100% {
-        transform: rotate(-30deg) translateX(-10%);
+        transform: rotate(-25deg) translateX(-10%);
     }
     25% {
-        transform: rotate(30deg) translateX(10%);
+        transform: rotate(25deg) translateX(10%);
     }
     50% {
-        transform: rotate(-30deg) translateX(-10%);
+        transform: rotate(-25deg) translateX(-10%);
     }
     75% {
-        transform: rotate(30deg) translateX(10%);
+        transform: rotate(25deg) translateX(10%);
     }
 }
