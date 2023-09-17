@@ -18,8 +18,7 @@
 }
 .text{
     font-size: 2em;
-    letter-spacing: 2px;
-    font-family:'Times New Roman', Times, serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
 
     border-right: 6px solid;
@@ -45,10 +44,12 @@ nav ul li{
     display: inline-block;
     margin-left: 40px;
 }
+
 nav ul li a{
     text-decoration: none;
     color: #000000;
-    font-size: 1.5em;
+    font-size: 1.25em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .mainPart {
@@ -59,31 +60,43 @@ nav ul li a{
     margin: auto;
     padding: 10%;
  
-    /* align-items: center; */
+    align-items: center;
     display: flex;
 }
 .bio {
     justify-content: center !important;
     
     max-width: 50%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .sentence {
     color: white;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 2em;
+    padding-bottom: 5%;
 }
 .smallSentence {
     color: rgb(211, 210, 210);
-    font-size: 0.7em;
+    font-size: 1.25em;
+    padding-bottom: 15%;
 }
 .aboutMe {
+    background-color: rgb(155, 151, 151);
+
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 5px ;
+    padding-bottom: 5px ;
+
+    max-width:fit-content;
+
+
+    border-radius: 5px;
     color: white;
     font-weight: bold;
-    padding-top: 5%;
-    font-size: 0.9em;
-
-    background-color: rgb(211, 210, 210);
+    font-size: 1.35em;
 }
+
 .imageHolder {
     max-width: 50%;
 }
