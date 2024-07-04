@@ -1,3 +1,12 @@
+// Define toggleMenu globally or in a scope accessible to event listeners
+function toggleMenu() {
+    const menu = document.querySelector(".menu-links")
+    const icon = document.querySelector(".hamburger-icon")
+    menu.classList.toggle("open")
+    icon.classList.toggle("open")
+}
+  
+// Adjust createNav function to use event listeners correctly
 export function createNav(rootElement) {
     const navDesktop = document.createElement('nav');
     navDesktop.id = 'desktop-nav';
@@ -34,6 +43,13 @@ export function createNav(rootElement) {
         </div>
     `;
 
-    rootElement.appendChild(navDesktop);
-    rootElement.appendChild(navHamburger);
+    rootElement.appendChild(navDesktop)
+    rootElement.appendChild(navHamburger)
+
+    // Add event listener for the hamburger icon
+    const hamburgerMenu = navHamburger.querySelector('.hamburger-menu')
+    hamburgerMenu.addEventListener('click', (event) => {
+        if (event.target.closest('.hamburger-icon') || event.target.closest('.menu-links a'))
+            toggleMenu()
+    });
 }

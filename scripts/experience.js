@@ -1,6 +1,6 @@
 export function createExperienceSection(rootElement) {
-    const section = document.createElement('section');
-    section.id = 'experience';
+    const section = document.createElement('section')
+    section.id = 'experience'
     section.innerHTML = `
         <h1 class="title">Tech Stack</h1>
         <div class="experience-details-container">
@@ -72,7 +72,7 @@ export function createExperienceSection(rootElement) {
             </div>
         </div>
         <img src="./assets/icons/arrow.png" alt="Arrow icon" class="icon arrow" onclick="location.href='./#projects'" />
-    `;
+    `
 
-    rootElement.appendChild(section);
+    rootElement.appendChild(section)
 }

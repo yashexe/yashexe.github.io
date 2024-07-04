@@ -1,6 +1,6 @@
 export function createContactSection(rootElement) {
-    const section = document.createElement('section');
-    section.id = 'contact';
+    const section = document.createElement('section')
+    section.id = 'contact'
     section.innerHTML = `
         <h1 class="title">Contact Me</h1>
         <div class="contact-info-upper-container">
@@ -13,7 +13,6 @@ export function createContactSection(rootElement) {
                 <p><a href="https://www.linkedin.com/in/yash-bhav">LinkedIn</a></p>
             </div>
         </div>
-    `;
-
-    rootElement.appendChild(section);
+    `
+    rootElement.appendChild(section)
 }

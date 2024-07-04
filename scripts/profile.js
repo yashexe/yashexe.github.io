@@ -1,6 +1,6 @@
 export function createProfileSection(rootElement) {
-    const section = document.createElement('section');
-    section.id = 'profile';
+    const section = document.createElement('section')
+    section.id = 'profile'
     section.innerHTML = `
         <div class="section__pic-container">
             <img class="main-pic" src="./assets/personal/YashBhavsar.jpeg" alt="Yash Bhavsar profile picture" />
@@ -20,28 +20,33 @@ export function createProfileSection(rootElement) {
                 <img src="./assets/icons/github.png" alt="My Github profile" class="icon" onclick="location.href='https://github.com/yashexe'" />
             </div>
         </div>
-    `;
-
-    rootElement.appendChild(section);
+    `
+    rootElement.appendChild(section)
 
     // Typewriter effect implementation
     const typewriterText = ['Software Engineer', 'B.Sc Electrical Engineering', 'Blogger']
-    const typewriterSpan = document.getElementById('typewriter');
-    let charIndex = 0, textIndex = 0, isDeleting = false;
+    const typewriterSpan = document.getElementById('typewriter')
+    let charIndex = 0, textIndex = 0, isDeleting = false
 
     function type() {
-        const currentText = typewriterText[textIndex];
-        
-        typewriterSpan.textContent = isDeleting ? currentText.substring(0, --charIndex) : currentText.substring(0, ++charIndex);
+        const currentText = typewriterText[textIndex]
 
-        if (charIndex === currentText.length + 1)  isDeleting = true;
-        
-        if (charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % typewriterText.length;
+        if (!isDeleting && charIndex === currentText.length) setTimeout(() => {
+            isDeleting = true
+            type()
+        }, 1000)
+        else {
+            typewriterSpan.textContent = isDeleting ? currentText.substring(0, --charIndex) : currentText.substring(0, ++charIndex);
+
+            if (charIndex === currentText.length + 1)  isDeleting = true
+            
+            if (charIndex === 0) {
+                isDeleting = false
+                textIndex = (textIndex + 1) % typewriterText.length
+            }
+
+            setTimeout(type, isDeleting ? 50 : 75)
         }
-
-        setTimeout(type, isDeleting ? 50 : 75);
     }
-    type();
+    type()
 }
