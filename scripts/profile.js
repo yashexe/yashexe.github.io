@@ -11,7 +11,7 @@ export function createProfileSection(rootElement) {
                 <span id="typewriter"></span>
             </div>
             <div class="btn-container">
-                <button class="btn btn-color-1" onclick="window.open('./assets/personal/Yash Bhavsar Resume.pdf')">
+                <button class="btn btn-color-1" onclick="window.open('./assets/personal/Yash_Bhavsar_Resume.pdf')">
                     Download Resume
                 </button>
             </div>
