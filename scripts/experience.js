@@ -50,10 +50,6 @@ export function createExperienceSection(rootElement) {
                             <img src="./assets/technologies/SQL.png" alt="SQL icon" class="icon"/>
                             <div><h3>SQL</h3></div>
                         </article>
-                        <article>
-                            <img src="./assets/technologies/PostgreSQL.png" alt="PostgreSQL icon" class="icon"/>
-                            <div><h3>PostgreSQL</h3></div>
-                        </article>
                     </div>
                 </div>
                 <div class="details-container">
