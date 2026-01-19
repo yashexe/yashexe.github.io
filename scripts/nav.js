@@ -15,8 +15,8 @@ export function createNav(rootElement) {
         <div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience">Tech Stack</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Tech Stack</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -35,8 +35,8 @@ export function createNav(rootElement) {
             <div class="menu-links">
                 <ul>
                     <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                    <li><a href="#experience" onclick="toggleMenu()">Tech Stack</a></li>
                     <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+                    <li><a href="#experience" onclick="toggleMenu()">Tech Stack</a></li>
                     <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
                 </ul>
             </div>

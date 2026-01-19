@@ -1,8 +1,8 @@
 import { createNav } from './scripts/nav.js'
 import { createProfileSection } from './scripts/profile.js'
 import { createAboutSection } from './scripts/about.js'
-import { createExperienceSection } from './scripts/experience.js'
 import { createProjectsSection } from './scripts/projects.js'
+import { createExperienceSection } from './scripts/experience.js'
 import { createContactSection } from './scripts/contact.js'
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -11,18 +11,18 @@ export function createAboutSection(rootElement) {
                 <div class="about-containers">
                     <div class="details-container">
                         <img src="./assets/icons/experience.png" alt="Experience icon" class="icon" />
-                        <h3>Recent Work Experience</h3>
-                        <p>Software Engineer Intern @ AMD</p>
+                        <h3>Current Role</h3>
+                        <p>Software Engineer @ Finaptive</p>
                     </div>
                     <div class="details-container">
                         <img src="./assets/icons/education.png" alt="Education icon" class="icon" />
                         <h3>Education</h3>
-                        <p>B.Sc. Electrical Engineering @ McMaster University</p>
+                        <p>B.S. Electrical Engineering @ McMaster University</p>
                     </div>
                 </div>
                 <div class="text-container">
                     <p>
-                        I'm a world-renowned Software Engineer and the one who solved climate change... someday. While I'm not quite at that level yet, I'm someone who is consistent, never stays down, enjoys what I do, and is honest with myself. I think that's worth betting on!
+                        I'm a Software Engineer with a passion for building scalable systems and solving complex problems. Currently at Finaptive, I engineer production-grade financial platforms. I thrive in collaborative environments, combining deep technical expertise with a commitment to clean code, security, and high-performance systems. I'm driven by challenges that require architectural thinking and continuous learning.
                     </p>
                 </div>
             </div>

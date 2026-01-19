@@ -3,7 +3,7 @@ export function createProfileSection(rootElement) {
     section.id = 'profile'
     section.innerHTML = `
         <div class="section__pic-container">
-            <img class="main-pic" src="./assets/personal/YashBhavsar.jpeg" alt="Yash Bhavsar profile picture" />
+            <img class="main-pic" src="./assets/personal/YashBhavsar.png" alt="Yash Bhavsar profile picture" />
         </div>
         <div class="section__text">
             <h1 class="title">Yash Bhavsar</h1>
@@ -24,7 +24,7 @@ export function createProfileSection(rootElement) {
     rootElement.appendChild(section)
 
     // Typewriter effect implementation
-    const typewriterText = ['Software Engineer', 'B.Sc Electrical Engineering', 'Blogger']
+    const typewriterText = ['Software Engineer @ Finaptive', 'Prev @ AMD', 'B.S in Electrical Engineering']
     const typewriterSpan = document.getElementById('typewriter')
     let charIndex = 0, textIndex = 0, isDeleting = false
 

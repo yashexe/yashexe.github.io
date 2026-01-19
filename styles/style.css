@@ -176,11 +176,15 @@ section {
 }
 
 .main-pic {
-  border-radius: 50%;
+  border-radius: 10%;
+}
+.NYSunset{
+  border-radius: 10%;
 }
 .section__text {
   align-self: center;
   text-align: center;
+  width: 450px; 
 }
 
 .section__text p {
@@ -194,8 +198,11 @@ section {
 .section__text__p2 {
   font-size: 1.75rem;
   margin-bottom: 1rem;
+  min-height: 2.5rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .title {
   font-size: 3rem;
   text-align: center;
@@ -289,6 +296,7 @@ section {
   border-radius: 2rem;
 }
 
+
 .arrow {
   position: absolute;
   right: -5rem;
@@ -361,6 +369,12 @@ article .icon {
   position: relative;
 }
 
+.about-containers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
 .color-container {
   border-color: rgb(163, 163, 163);
   background: rgb(250, 250, 250);
@@ -368,13 +382,22 @@ article .icon {
 
 .project-img {
   border-radius: 2rem;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.4);
 }
 
 .project-title {
   margin: 1rem;
   color: black;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  color: rgb(85, 85, 85);
+  margin: 0.5rem 0 1rem 0;
+  line-height: 1.4;
 }
 
 .project-btn {

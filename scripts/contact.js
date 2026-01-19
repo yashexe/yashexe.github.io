@@ -12,6 +12,10 @@ export function createContactSection(rootElement) {
                 <img src="./assets/icons/linkedin.png" alt="LinkedIn icon" class="icon contact-icon" />
                 <p><a href="https://www.linkedin.com/in/yash-bhav">LinkedIn</a></p>
             </div>
+            <div class="contact-info-container">
+                <img src="./assets/icons/github.png" alt="GitHub icon" class="icon contact-icon" />
+                <p><a href="https://github.com/yashexe">GitHub</a></p>
+            </div>
         </div>
     `
     rootElement.appendChild(section)
