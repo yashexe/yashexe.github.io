@@ -4,14 +4,336 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yash Bhavsar</title>
+
+    <!-- Primary meta -->
+    <title>Yash Bhavsar — Software Engineer</title>
+    <meta name="description" content="Yash Bhavsar — software engineer at Finaptive (prev. AMD). I build production systems across applied ML, financial-data pipelines, and developer tooling, with a bias toward clean architecture and meaningful tests.">
+    <meta name="author" content="Yash Bhavsar">
+    <link rel="canonical" href="https://yashexe.github.io/">
+
+    <meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0c0e" media="(prefers-color-scheme: dark)">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yashexe.github.io/">
+    <meta property="og:title" content="Yash Bhavsar — Software Engineer">
+    <meta property="og:description" content="Software engineer building production systems across applied ML, financial-data pipelines, and developer tooling.">
+    <meta property="og:image" content="https://yashexe.github.io/assets/personal/YashBhavsar.png">
+    <meta property="og:image:alt" content="Portrait of Yash Bhavsar">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yash Bhavsar — Software Engineer">
+    <meta name="twitter:description" content="Software engineer building production systems across applied ML, financial-data pipelines, and developer tooling.">
+    <meta name="twitter:image" content="https://yashexe.github.io/assets/personal/YashBhavsar.png">
+
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Fonts: Hanken Grotesk (sans) + JetBrains Mono (mono) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/mediaqueries.css">
+
+    <!-- Set theme before first paint to avoid a flash of the wrong theme -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('theme');
+                var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) { /* localStorage unavailable */ }
+        })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yash Bhavsar",
+        "url": "https://yashexe.github.io/",
+        "jobTitle": "Software Engineer",
+        "worksFor": { "@type": "Organization", "name": "Finaptive" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "McMaster University" },
+        "sameAs": [
+            "https://www.linkedin.com/in/yash-bhav",
+            "https://github.com/yashexe"
+        ]
+    }
+    </script>
+
+    <script src="scripts/main.js" defer></script>
 </head>
 <body>
-    <div id="root"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@kennethormandy/typewriter@1.0.0/dist/core.js"></script>
-    <script type="module" src="./index.js"></script>
+    <a class="skip-link" href="#work">Skip to content</a>
+
+    <header class="nav" id="top">
+        <a class="nav__logo" href="#top" aria-label="Yash Bhavsar — home">
+            <span class="nav__logo-mark">YB</span>
+            <span class="nav__logo-text">Yash Bhavsar</span>
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+            <a href="#work"><span class="nav__num">01</span> Work</a>
+            <a href="#about"><span class="nav__num">02</span> About</a>
+            <a href="#contact"><span class="nav__num">03</span> Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="hero">
+            <p class="eyebrow hero__eyebrow"><span class="dot"></span>Software Engineer · Finaptive · prev. AMD</p>
+            <h1 class="hero__headline">Engineering systems that hold up under real-world constraints.</h1>
+            <p class="hero__lead">
+                I'm <strong>Yash Bhavsar</strong> — a software engineer at Finaptive building production
+                financial platforms, previously at AMD. I work across applied ML, financial-data
+                pipelines, and developer tooling, with a bias toward clean architecture and tests
+                that actually mean something.
+            </p>
+            <div class="hero__links">
+                <a class="link-mono" href="https://github.com/yashexe" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+                <a class="link-mono" href="https://www.linkedin.com/in/yash-bhav" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+                <a class="link-mono" href="mailto:yashbhavsar3602@gmail.com">Email <span aria-hidden="true">↗</span></a>
+                <a class="link-mono link-mono--accent" href="./assets/personal/Yash_Bhavsar_Resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
+        <!-- WORK -->
+        <section class="section" id="work">
+            <div class="section__head" data-reveal>
+                <p class="eyebrow">01 — Selected Work</p>
+                <h2 class="section__title">Things I've built</h2>
+            </div>
+
+            <ol class="projects">
+                <!-- Instaply -->
+                <li class="project" data-reveal>
+                    <div class="project__index"><span>01</span></div>
+                    <div class="project__body">
+                        <div class="project__heading">
+                            <h3 class="project__title">Instaply</h3>
+                            <a class="project__link" href="https://github.com/yashexe/instaply" target="_blank" rel="noopener" aria-label="Instaply on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <p class="project__tagline">A job-discovery engine that monitors ATS feeds and ranks roles against your résumé — entirely on your machine.</p>
+                        <ul class="project__points">
+                            <li>Hybrid match scoring — <span class="num">60%</span> deterministic + <span class="num">40%</span> LLM judge over local sentence-transformer embeddings; your résumé never leaves the device.</li>
+                            <li>Ingests Greenhouse, Lever &amp; Ashby feeds with budget-aware Gemini scheduling and graceful fallback when the quota runs out.</li>
+                            <li><span class="num">74</span> modules, <span class="num">40+</span> tests, SQLite embedding cache, scheduled digest emails.</li>
+                        </ul>
+                        <ul class="project__tags">
+                            <li>Python</li><li>FastAPI</li><li>sentence-transformers</li><li>Gemini</li><li>SQLite</li><li>APScheduler</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Asterion -->
+                <li class="project" data-reveal>
+                    <div class="project__index"><span>02</span></div>
+                    <div class="project__body">
+                        <div class="project__heading">
+                            <h3 class="project__title">Asterion</h3>
+                            <a class="project__link" href="https://github.com/yashexe/asterion" target="_blank" rel="noopener" aria-label="Asterion on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <p class="project__tagline">A moving-object detection pipeline that finds asteroids in real telescope imagery.</p>
+                        <ul class="project__points">
+                            <li><span class="num">100%</span> recovery completeness for SNR ≳ 11 with <span class="num">zero</span> false positives on injection–recovery benchmarks.</li>
+                            <li>Pulls real ZTF survey frames from IRSA and cross-matches detections against SkyBoT to name known asteroids.</li>
+                            <li><span class="num">5–7</span> Mpix/s on a laptop; <span class="num">43</span> unit/integration/API tests; no-build SPA served over FastAPI.</li>
+                        </ul>
+                        <ul class="project__tags">
+                            <li>Python</li><li>NumPy</li><li>SciPy</li><li>Astropy</li><li>FastAPI</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Stride -->
+                <li class="project" data-reveal>
+                    <div class="project__index"><span>03</span></div>
+                    <div class="project__body">
+                        <div class="project__heading">
+                            <h3 class="project__title">Stride</h3>
+                            <a class="project__link" href="https://github.com/yashexe/stride" target="_blank" rel="noopener" aria-label="Stride on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <p class="project__tagline">An equity screener that surfaces stocks turning from selling exhaustion into early institutional accumulation.</p>
+                        <ul class="project__points">
+                            <li>Deterministic four-stage funnel: Technical Setup → Hype Filter → Fundamental Floor → Smart-Money Confirmation.</li>
+                            <li>Blends yfinance, Finnhub, SEC EDGAR &amp; Reddit signals; every threshold is config-driven so output is fully reproducible.</li>
+                            <li><span class="num">53</span> modules, Typer CLI + FastAPI, structured logging, <span class="num">15+</span> tests.</li>
+                        </ul>
+                        <ul class="project__tags">
+                            <li>Python</li><li>Pandas</li><li>FastAPI</li><li>Typer</li><li>Pydantic</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Code Atlas -->
+                <li class="project" data-reveal>
+                    <div class="project__index"><span>04</span></div>
+                    <div class="project__body">
+                        <div class="project__heading">
+                            <h3 class="project__title">Code Atlas</h3>
+                            <a class="project__link" href="https://github.com/yashexe/code-atlas" target="_blank" rel="noopener" aria-label="Code Atlas on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <p class="project__tagline">“Google Maps” for a codebase — turns a repo's full history into an explorable knowledge graph.</p>
+                        <ul class="project__points">
+                            <li>Ingests files, symbols, dependencies, commits &amp; PRs into a graph with ownership, knowledge-concentration (Herfindahl) and risk lenses.</li>
+                            <li>Estimates AI-vs-human contribution and recommends the right reviewer for a change.</li>
+                            <li>React + Cytoscape front end over a FastAPI / PostgreSQL backend, fully Dockerized.</li>
+                        </ul>
+                        <ul class="project__tags">
+                            <li>React</li><li>TypeScript</li><li>Cytoscape</li><li>FastAPI</li><li>PostgreSQL</li><li>Docker</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Algorithm Machine -->
+                <li class="project" data-reveal>
+                    <div class="project__index"><span>05</span></div>
+                    <div class="project__body">
+                        <div class="project__heading">
+                            <h3 class="project__title">Trading Engine</h3>
+                            <a class="project__link" href="https://github.com/yashexe/algorithm-machine" target="_blank" rel="noopener" aria-label="Trading Engine on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <p class="project__tagline">An event-driven algorithmic-trading engine where the risk gate has the final say.</p>
+                        <ul class="project__points">
+                            <li>A risk gatekeeper sits as a hard gate in front of every order — no strategy can bypass it.</li>
+                            <li>Event-bus architecture prevents look-ahead bias; the paper broker simulates slippage &amp; commissions.</li>
+                            <li><span class="num">34</span> modules across <span class="num">8</span> layers; backtest harness with drawdown / position metrics; YAML-configured.</li>
+                        </ul>
+                        <ul class="project__tags">
+                            <li>Python</li><li>Pandas</li><li>NumPy</li><li>yfinance</li><li>Pydantic</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Lunar Landing RL Hackathon -->
+                <li class="project" data-reveal>
+                    <div class="project__index"><span>06</span></div>
+                    <div class="project__body">
+                        <div class="project__heading">
+                            <h3 class="project__title">Lunar Landing RL Hackathon <span class="project__award">🏆 1st place</span></h3>
+                            <a class="project__link" href="https://github.com/rabiut/RL_Hackathon" target="_blank" rel="noopener" aria-label="Lunar Landing RL Hackathon on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                        </div>
+                        <p class="project__tagline">A reinforcement-learning agent that took first place at an RL hackathon by learning to land the LunarLander.</p>
+                        <ul class="project__points">
+                            <li>Deep Q-Network in PyTorch reaching a <span class="num">285.3</span> reward score.</li>
+                            <li>Finished <span class="num">1st</span> out of <span class="num">50+</span> competing teams.</li>
+                        </ul>
+                        <ul class="project__tags">
+                            <li>Python</li><li>PyTorch</li><li>Deep Q-Networks</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+
+            <!-- Secondary / earlier work -->
+            <div class="more" data-reveal>
+                <p class="eyebrow">Also built</p>
+                <ul class="more__list">
+                    <li>
+                        <a href="https://github.com/yashexe/nextmove-capstone" target="_blank" rel="noopener">
+                            <span class="more__name">Intelligent Email Sorting <span aria-hidden="true">↗</span></span>
+                            <span class="more__desc">ML pipeline (spaCy + NLTK) hitting 90% classification accuracy with GDPR-aware processing.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/yashexe/LiDAR-based-3D-Mapping-project" target="_blank" rel="noopener">
+                            <span class="more__name">Embedded LiDAR Mapping <span aria-hidden="true">↗</span></span>
+                            <span class="more__desc">Low-level I2C/UART sensor integration with a Python 3D point-cloud visualizer.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/yashexe/pseudogate" target="_blank" rel="noopener">
+                            <span class="more__name">PseudoGate <span aria-hidden="true">↗</span></span>
+                            <span class="more__desc">AST-based tool that injects AI-generated imperative logic into Python stubs.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/yashexe/crucible" target="_blank" rel="noopener">
+                            <span class="more__name">Crucible <span aria-hidden="true">↗</span></span>
+                            <span class="more__desc">RL study — a PPO agent (~285 reward) benchmarked against four algorithms on LunarLander-v3.</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="section__head" data-reveal>
+                <p class="eyebrow">02 — About</p>
+                <h2 class="section__title">Who's building this</h2>
+            </div>
+            <div class="about" data-reveal>
+                <div class="about__main">
+                    <p>
+                        I like hard, well-defined problems — systems with real constraints, where
+                        correctness and architecture genuinely matter. At <strong>Finaptive</strong> I build
+                        production financial platforms; before that I was at <strong>AMD</strong>.
+                    </p>
+                    <p>
+                        Most of what I build leans the same way: deterministic pipelines, applied ML
+                        and LLMs used with judgment rather than for show, and tools that make complex
+                        systems legible. I care about tests, clean boundaries, and shipping things
+                        that hold up after the demo.
+                    </p>
+                    <p class="about__edu">
+                        B.S. Electrical Engineering — McMaster University.
+                    </p>
+                </div>
+                <div class="about__side">
+                    <img class="about__photo" src="./assets/personal/YashBhavsar.png" alt="Yash Bhavsar" width="320" height="320" loading="lazy" decoding="async" />
+                    <dl class="stack">
+                        <div class="stack__group">
+                            <dt>Languages</dt>
+                            <dd>Python · TypeScript · SQL · Java</dd>
+                        </div>
+                        <div class="stack__group">
+                            <dt>Backend</dt>
+                            <dd>FastAPI · Flask · Node.js · REST</dd>
+                        </div>
+                        <div class="stack__group">
+                            <dt>Data</dt>
+                            <dd>PostgreSQL · SQLite · MongoDB · Redis · Pandas</dd>
+                        </div>
+                        <div class="stack__group">
+                            <dt>ML / AI</dt>
+                            <dd>PyTorch · sentence-transformers · spaCy · LLM integration</dd>
+                        </div>
+                        <div class="stack__group">
+                            <dt>Infra</dt>
+                            <dd>Docker · Azure · GitHub Actions · CI/CD</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section section--contact" id="contact">
+            <div class="section__head" data-reveal>
+                <p class="eyebrow">03 — Contact</p>
+                <h2 class="section__title contact__title">Let's talk.</h2>
+            </div>
+            <div class="contact" data-reveal>
+                <a class="contact__email" href="mailto:yashbhavsar3602@gmail.com">yashbhavsar3602@gmail.com</a>
+                <div class="contact__links">
+                    <a class="link-mono" href="https://github.com/yashexe" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+                    <a class="link-mono" href="https://www.linkedin.com/in/yash-bhav" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+                    <a class="link-mono link-mono--accent" href="./assets/personal/Yash_Bhavsar_Resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>© <span id="year"></span> Yash Bhavsar</span>
+        <span class="footer__meta">Built from scratch · HTML · CSS · JS</span>
+    </footer>
 </body>
 </html>
