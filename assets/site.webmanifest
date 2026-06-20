@@ -1,0 +1,15 @@
+{
+  "name": "Yash Bhavsar — Software Engineer",
+  "short_name": "Yash Bhavsar",
+  "description": "Software engineer building production systems across applied ML, financial-data pipelines, and developer tooling.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0c0e",
+  "theme_color": "#0b0c0e",
+  "icons": [
+    { "src": "assets/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "assets/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "assets/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "assets/icon-512-maskable.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}
