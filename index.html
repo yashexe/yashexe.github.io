@@ -7,7 +7,7 @@
 
     <!-- Primary meta -->
     <title>Yash Bhavsar — Software Engineer</title>
-    <meta name="description" content="Yash Bhavsar — software engineer at Finaptive (prev. AMD). I build production systems across applied ML, financial-data pipelines, and developer tooling, with a bias toward clean architecture and meaningful tests.">
+    <meta name="description" content="Yash Bhavsar — software engineer at Finaptive (prev. AMD). I own client deployments end to end and build agentic AI systems with deterministic guardrails, with a bias toward clean architecture and meaningful tests.">
     <meta name="author" content="Yash Bhavsar">
     <link rel="canonical" href="https://yashexe.github.io/">
 
@@ -18,13 +18,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yashexe.github.io/">
     <meta property="og:title" content="Yash Bhavsar — Software Engineer">
-    <meta property="og:description" content="Software engineer building production systems across applied ML, financial-data pipelines, and developer tooling.">
+    <meta property="og:description" content="Software engineer owning client deployments end to end and building agentic AI systems with deterministic guardrails.">
     <meta property="og:image" content="https://yashexe.github.io/assets/personal/YashBhavsar.png">
     <meta property="og:image:alt" content="Portrait of Yash Bhavsar">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Yash Bhavsar — Software Engineer">
-    <meta name="twitter:description" content="Software engineer building production systems across applied ML, financial-data pipelines, and developer tooling.">
+    <meta name="twitter:description" content="Software engineer owning client deployments end to end and building agentic AI systems with deterministic guardrails.">
     <meta name="twitter:image" content="https://yashexe.github.io/assets/personal/YashBhavsar.png">
 
     <!-- Favicons: YB monogram on the dossier tile -->
@@ -94,10 +94,10 @@
             <p class="eyebrow hero__eyebrow"><span class="dot"></span>Software Engineer · Finaptive · prev. AMD</p>
             <h1 class="hero__headline">Engineering systems that hold up under real-world constraints.</h1>
             <p class="hero__lead">
-                I'm <strong>Yash Bhavsar</strong> — a software engineer at Finaptive building production
-                financial platforms, previously at AMD. I work across applied ML, financial-data
-                pipelines, and developer tooling, with a bias toward clean architecture and tests
-                that actually mean something.
+                I'm <strong>Yash Bhavsar</strong> — a software engineer at Finaptive, previously at AMD.
+                I own client deployments from discovery call to production go-live, and I build
+                agentic AI systems the same way I build data pipelines: LLMs where they earn their
+                keep, deterministic code everywhere a mistake would actually cost something.
             </p>
             <div class="hero__links">
                 <a class="link-mono" href="https://github.com/yashexe" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
@@ -115,37 +115,39 @@
             </div>
 
             <ol class="projects">
-                <!-- Instaply -->
+                <!-- Adam -->
                 <li class="project" data-reveal>
                     <div class="project__index"><span>01</span></div>
                     <div class="project__body">
                         <div class="project__heading">
-                            <h3 class="project__title">Instaply</h3>
-                            <a class="project__link" href="https://github.com/yashexe/instaply" target="_blank" rel="noopener" aria-label="Instaply on GitHub">GitHub <span aria-hidden="true">↗</span></a>
+                            <h3 class="project__title">Adam</h3>
+                            <a class="project__link" href="https://github.com/yashexe/Adam" target="_blank" rel="noopener" aria-label="Adam on GitHub">GitHub <span aria-hidden="true">↗</span></a>
                         </div>
-                        <p class="project__tagline">A job-discovery engine that monitors ATS feeds and ranks roles against your résumé — entirely on your machine.</p>
+                        <p class="project__tagline">An agentic outreach pipeline that turns a fresh job posting into a personalized, verified, ready-to-send email — where LLM agents do the research and writing, and deterministic code owns every consequence.</p>
                         <ul class="project__points">
-                            <li>Hybrid match scoring — <span class="num">60%</span> deterministic + <span class="num">40%</span> LLM judge over local sentence-transformer embeddings; your résumé never leaves the device.</li>
-                            <li>Ingests Greenhouse, Lever &amp; Ashby feeds with budget-aware Gemini scheduling and graceful fallback when the quota runs out.</li>
-                            <li><span class="num">74</span> modules, <span class="num">40+</span> tests, SQLite embedding cache, scheduled digest emails.</li>
+                            <li><span class="num">8</span>-stage pipeline orchestrating <span class="num">2</span> tool-calling Claude agents (contact research, drafting) — agents propose, typed &amp; audited code decides, and each agent sees only the context it needs.</li>
+                            <li>Human approval enforced by architecture, not policy: no code path can transmit a message — drafts land in Gmail over IMAP, backed by per-company rate limits, address verification and prior-contact checks against real sent mail.</li>
+                            <li>LLM-as-judge qualification over <span class="num">300+</span> live postings, with frozen anchor postings in every batch as a drift alarm — measured evals retired a legacy heuristic scorer the day it underperformed.</li>
                         </ul>
                         <ul class="project__tags">
-                            <li>Python</li><li>FastAPI</li><li>sentence-transformers</li><li>Gemini</li><li>SQLite</li><li>APScheduler</li>
+                            <li>Python</li><li>Claude Agents</li><li>LLM-as-judge</li><li>SQLite</li><li>Hunter API</li><li>IMAP</li>
                         </ul>
                     </div>
                     <div class="project__viz" aria-hidden="true">
-                        <!-- Instaply: ranked match bars, top match highlighted -->
+                        <!-- Adam: two hands reaching across the gap, spark at the near-touch, drafted mail below -->
                         <svg viewBox="0 0 160 120" stroke-linecap="round" stroke-linejoin="round">
-                            <rect class="vz-sigf" x="30" y="17" width="112" height="11" rx="5.5"></rect>
-                            <circle class="vz-sigf" cx="20" cy="22.5" r="3.5"></circle>
-                            <rect class="vz-dim" x="30" y="40" width="84" height="9" rx="4.5" stroke-width="2"></rect>
-                            <circle class="vz-dimf" cx="20" cy="44.5" r="3"></circle>
-                            <rect class="vz-dim" x="30" y="60" width="100" height="9" rx="4.5" stroke-width="2"></rect>
-                            <circle class="vz-dimf" cx="20" cy="64.5" r="3"></circle>
-                            <rect class="vz-dim" x="30" y="80" width="72" height="9" rx="4.5" stroke-width="2"></rect>
-                            <circle class="vz-dimf" cx="20" cy="84.5" r="3"></circle>
-                            <rect class="vz-dim" x="30" y="100" width="90" height="9" rx="4.5" stroke-width="2"></rect>
-                            <circle class="vz-dimf" cx="20" cy="104.5" r="3"></circle>
+                            <rect class="vz-dim" x="6" y="68" width="40" height="16" rx="8" stroke-width="2"></rect>
+                            <rect class="vz-dimf" x="42" y="72" width="26" height="8" rx="4"></rect>
+                            <rect class="vz-dim" x="114" y="36" width="40" height="16" rx="8" stroke-width="2"></rect>
+                            <rect class="vz-dimf" x="92" y="40" width="26" height="8" rx="4"></rect>
+                            <circle class="vz-sigf" cx="80" cy="60" r="3.2"></circle>
+                            <line class="vz-sig" x1="72" y1="52" x2="75" y2="55" stroke-width="1.5"></line>
+                            <line class="vz-sig" x1="85" y1="65" x2="88" y2="68" stroke-width="1.5"></line>
+                            <line class="vz-sig" x1="72" y1="68" x2="75" y2="65" stroke-width="1.5"></line>
+                            <line class="vz-sig" x1="85" y1="55" x2="88" y2="52" stroke-width="1.5"></line>
+                            <path class="vz-sig" d="M84 68 C 94 76, 102 80, 112 86" stroke-width="1.5" stroke-dasharray="2 5"></path>
+                            <rect class="vz-sig" x="116" y="84" width="30" height="22" rx="3" stroke-width="2"></rect>
+                            <path class="vz-sig" d="M116 86 L131 97 L146 86" stroke-width="1.5"></path>
                         </svg>
                     </div>
                 </li>
@@ -396,14 +398,15 @@
                 <div class="about__main">
                     <p>
                         I like hard, well-defined problems — systems with real constraints, where
-                        correctness and architecture genuinely matter. At <strong>Finaptive</strong> I build
-                        production financial platforms; before that I was at <strong>AMD</strong>.
+                        correctness and architecture genuinely matter. At <strong>Finaptive</strong> I own
+                        client ERP deployments end to end — from the discovery call with a CFO through
+                        production go-live; before that I was at <strong>AMD</strong>.
                     </p>
                     <p>
-                        Most of what I build leans the same way: deterministic pipelines, applied ML
-                        and LLMs used with judgment rather than for show, and tools that make complex
-                        systems legible. I care about tests, clean boundaries, and shipping things
-                        that hold up after the demo.
+                        Most of what I build leans the same way: agentic systems where the LLM calls
+                        tools but deterministic code owns the consequences, financial-data pipelines,
+                        and tools that make complex systems legible. I care about tests, clean
+                        boundaries, and shipping things that hold up after the demo.
                     </p>
                     <p class="about__edu">
                         B.S. Electrical Engineering — McMaster University.
@@ -414,23 +417,23 @@
                     <dl class="stack">
                         <div class="stack__group">
                             <dt>Languages</dt>
-                            <dd>Python · TypeScript · SQL · Java</dd>
+                            <dd>Python · TypeScript · SQL · C/C++</dd>
                         </div>
                         <div class="stack__group">
                             <dt>Backend</dt>
-                            <dd>FastAPI · Flask · Node.js · REST</dd>
+                            <dd>Flask · FastAPI · Celery · Node.js · REST</dd>
                         </div>
                         <div class="stack__group">
                             <dt>Data</dt>
-                            <dd>PostgreSQL · SQLite · MongoDB · Redis · Pandas</dd>
+                            <dd>PostgreSQL · Redis · SQLite · MongoDB · Pandas</dd>
                         </div>
                         <div class="stack__group">
                             <dt>ML / AI</dt>
-                            <dd>PyTorch · sentence-transformers · spaCy · LLM integration</dd>
+                            <dd>Claude API · agent orchestration · LLM-as-judge · PyTorch</dd>
                         </div>
                         <div class="stack__group">
                             <dt>Infra</dt>
-                            <dd>Docker · Azure · GitHub Actions · CI/CD</dd>
+                            <dd>Docker · Azure · GitHub Actions · CI/CD · Linux</dd>
                         </div>
                     </dl>
                 </div>
