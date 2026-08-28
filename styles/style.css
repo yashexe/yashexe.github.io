@@ -442,6 +442,98 @@ main { display: block; }
 .more__list a:hover .more__name { color: var(--accent); }
 .more__desc { color: var(--muted); font-size: 0.92rem; }
 
+/* ---------- EXPERIENCE ---------- */
+.xp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9rem;
+  margin-bottom: 3rem;
+}
+.xp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-elev);
+  transition: border-color 0.25s ease;
+}
+.xp-stat:hover { border-color: var(--border-strong); }
+.xp-stat dd {
+  order: -1;
+  font-family: var(--font-mono);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.xp-stat dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.xp { list-style: none; }
+.xp__item {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: 1.5rem;
+  padding: 2.2rem 0;
+  border-top: 1px solid var(--border);
+  transition: border-color 0.3s ease;
+}
+.xp__item:last-child { border-bottom: 1px solid var(--border); }
+.xp__item:hover { border-top-color: var(--border-strong); }
+.xp__when span {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--faint);
+  display: inline-block;
+  padding-top: 0.4rem;
+}
+.xp__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.xp__role {
+  font-size: clamp(1.3rem, 1rem + 1.2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.xp__org {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.14rem 0.6rem;
+  white-space: nowrap;
+}
+.xp__summary {
+  margin-top: 0.7rem;
+  font-size: 1.05rem;
+  color: var(--text);
+  max-width: 60ch;
+}
+.xp__body .project__points { margin-top: 1rem; }
+.xp__cta { margin-top: 2.2rem; }
+
+@media (max-width: 860px) {
+  .xp-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .xp__item { grid-template-columns: 1fr; gap: 0.4rem; }
+  .xp__when span { padding-top: 0; }
+}
+
 /* ---------- ABOUT ---------- */
 .about {
   display: grid;

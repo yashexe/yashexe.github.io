@@ -79,8 +79,9 @@
         </a>
         <nav class="nav__links" aria-label="Primary">
             <a href="#work"><span class="nav__num">01</span> Work</a>
-            <a href="#about"><span class="nav__num">02</span> About</a>
-            <a href="#contact"><span class="nav__num">03</span> Contact</a>
+            <a href="#experience"><span class="nav__num">02</span> Experience</a>
+            <a href="#about"><span class="nav__num">03</span> About</a>
+            <a href="#contact"><span class="nav__num">04</span> Contact</a>
         </nav>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
             <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
@@ -388,10 +389,99 @@
             </div>
         </section>
 
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+            <div class="section__head" data-reveal>
+                <p class="eyebrow">02 — Experience</p>
+                <h2 class="section__title">Where I've done this for real</h2>
+            </div>
+
+            <dl class="xp-stats" data-reveal>
+                <div class="xp-stat">
+                    <dt>client deployments owned end&nbsp;to&nbsp;end</dt>
+                    <dd>15+</dd>
+                </div>
+                <div class="xp-stat">
+                    <dt>client revenue contributed</dt>
+                    <dd>$170K+</dd>
+                </div>
+                <div class="xp-stat">
+                    <dt>financial records processed daily</dt>
+                    <dd>5M+</dd>
+                </div>
+                <div class="xp-stat">
+                    <dt>processing time cut</dt>
+                    <dd>87%</dd>
+                </div>
+            </dl>
+
+            <ol class="xp">
+                <li class="xp__item" data-reveal>
+                    <div class="xp__when"><span>Jun 2025 — now</span></div>
+                    <div class="xp__body">
+                        <div class="xp__heading">
+                            <h3 class="xp__role">Software Engineer</h3>
+                            <span class="xp__org">Finaptive</span>
+                        </div>
+                        <p class="xp__summary">
+                            The forward-deployed job, in practice: I run the discovery call,
+                            own the integration, and answer for it in production.
+                        </p>
+                        <ul class="project__points">
+                            <li>Own the full lifecycle of <span class="num">15+</span> client deployments across SAP, Costpoint, Blackbaud, PointClickCare, Xero &amp; SFTP — from discovery calls with CFOs through go-live and ongoing optimization — directly contributing <span class="num">$170K+</span> in client revenue.</li>
+                            <li>Designed a production classification engine on the <span class="num">Claude API</span> that maps unstructured client data to standardized financial schemas — the LLM proposes, deterministic validation decides what reaches reconciliation.</li>
+                            <li>Led the PointClickCare marketplace integration end to end: technical validation calls, API safeguards, and a webhook-driven incident-alert system serving <span class="num">10</span> healthcare facilities.</li>
+                            <li>Architected a Celery/Redis dispatcher–executor pipeline — isolated queues, distributed locking for idempotency, rate-limit retries — cutting processing time <span class="num">87%</span>; handles <span class="num">5M+</span> records/day on KEDA autoscaling with <span class="num">30×</span> headroom.</li>
+                            <li>Built a connector framework (OAuth2, REST, ODBC, SFTP) that turned one-off integration work into zero-code client onboarding.</li>
+                        </ul>
+                        <ul class="project__tags">
+                            <li>Python</li><li>Claude API</li><li>Celery</li><li>Redis</li><li>PostgreSQL</li><li>KEDA</li><li>Azure</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="xp__item" data-reveal>
+                    <div class="xp__when"><span>Feb — May 2025</span></div>
+                    <div class="xp__body">
+                        <div class="xp__heading">
+                            <h3 class="xp__role">Software Engineer Intern</h3>
+                            <span class="xp__org">Finaptive</span>
+                        </div>
+                        <p class="xp__summary">
+                            Hired full-time four months in.
+                        </p>
+                        <ul class="project__points">
+                            <li>Built the initial ETL pipeline — transformation workflows, validation checkpoints, and Celery RedBeat scheduling for automated ingestion across client ERP environments.</li>
+                            <li>Added data-preview endpoints so clients inspect upstream samples before full runs — catching schema issues early and cutting bad-transfer support tickets.</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="xp__item" data-reveal>
+                    <div class="xp__when"><span>May 2023 — Apr 2024</span></div>
+                    <div class="xp__body">
+                        <div class="xp__heading">
+                            <h3 class="xp__role">Design Automation Engineer Intern</h3>
+                            <span class="xp__org">AMD</span>
+                        </div>
+                        <ul class="project__points">
+                            <li>Built Python / C-Shell automation that eliminated <span class="num">20+</span> hours of weekly validation work across hardware design workflows.</li>
+                            <li>Led code reviews and static analysis across <span class="num">10+</span> hardware design projects, surfacing <span class="num">100+</span> critical defects.</li>
+                            <li>Developed a real-time PHP/JS dashboard for test-result observability and system-risk triage.</li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+
+            <p class="xp__cta" data-reveal>
+                <a class="link-mono link-mono--accent" href="./assets/personal/Yash_Bhavsar_Resume.pdf" target="_blank" rel="noopener">Full résumé (PDF) <span aria-hidden="true">↗</span></a>
+            </p>
+        </section>
+
         <!-- ABOUT -->
         <section class="section" id="about">
             <div class="section__head" data-reveal>
-                <p class="eyebrow">02 — About</p>
+                <p class="eyebrow">03 — About</p>
                 <h2 class="section__title">Who's building this</h2>
             </div>
             <div class="about" data-reveal>
@@ -443,7 +533,7 @@
         <!-- CONTACT -->
         <section class="section section--contact" id="contact">
             <div class="section__head" data-reveal>
-                <p class="eyebrow">03 — Contact</p>
+                <p class="eyebrow">04 — Contact</p>
                 <h2 class="section__title contact__title">Let's talk.</h2>
             </div>
             <div class="contact" data-reveal>
