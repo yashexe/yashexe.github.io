@@ -1,0 +1,105 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://yashexe.github.io/writing/job-boards-raspberry-pi/">
+<title>I wanted job alerts before everyone else. So I built my own.</title>
+<meta name="description" content="Watching 12,441 company career boards from a Raspberry Pi.">
+<style>body{max-width:680px;margin:2rem auto;padding:0 16px;font:18px/1.6 Georgia,serif}img{max-width:100%}figcaption{color:#666;font-size:.9rem;text-align:center}</style>
+</head><body><article>
+<h1>I wanted job alerts before everyone else. So I built my own.</h1>
+<h2>Watching 12,441 company career boards from a Raspberry Pi.</h2>
+<figure><img src="https://yashexe.github.io/assets/writing/medium/00-cover-card.png" alt="I wanted job alerts before everyone else. So I built my own. 3.5 min median detection time, 12,441 career boards monitored."></figure>
+<p>A cold application sent a day after a posting goes live joins a pile. Sent in the first hour, it's near the top of it. Every job alert I tried arrived hours or a day late, so I built one that doesn't.</p>
+<p>It watches 12,441 company career boards from a Raspberry Pi in my apartment, checks every one of them every five minutes, and has run unattended since June. A matching posting is detected a median of 3.5 minutes after the company publishes it, and the alert follows within a couple of minutes.</p>
+<p>The interesting part was never fetching job postings. It was keeping a system reliable when it depends on twelve thousand sources it doesn't control, any of which can throttle it, go down, or report a brand-new posting as months old.</p>
+<h2>Why job alerts are slow</h2>
+<p>Most startups don't run their own careers site. They rent one from an applicant tracking system, and a handful of those systems host the career boards of nearly every venture-backed company I care about. LinkedIn, Indeed and the aggregators get their copies downstream of those boards, on their own schedule.</p>
+<figure><img src="https://yashexe.github.io/assets/writing/medium/01-why-alerts-are-slow.png" alt="Everyone else: career board, then aggregators, then your alert hours to a day later. This tracker: career board, then the tracker, then your alert in minutes."><figcaption>Same posting, same company board. The only difference is who's watching it.</figcaption></figure>
+<p>So the tracker isn't trying to be a better job site. It removes the aggregation delay by watching the source.</p>
+<h2>What you actually get</h2>
+<p>When something matches, it lands in your inbox. The filter is deliberately broad, so on a weekday it finds about 180 matching postings, each one emailed within a couple of minutes of being found. Here's the shape of an alert, with the postings invented:</p>
+<figure><img src="https://yashexe.github.io/assets/writing/medium/02-alert-email.png" alt="Example alert email with three invented postings"><figcaption>An example alert. The companies and postings are invented.</figcaption></figure>
+<p>Every part of an entry is dropped when a board doesn't supply it. The warning on the last one flags a repost, since a role posted twice is often one that didn't fill.</p>
+<p>Want these for your own job search? I'm looking for a few people to try it first.</p>
+<p><a href="mailto:yashbhavsar3602@gmail.com?subject=Early%20access">Request early access →</a></p>
+<h2>How fast it is</h2>
+<p>The tracker detects a matching posting a median of 3.5 minutes after the company publishes it. That's measured on 342 matching postings over four days in September 2026, by comparing the platform's own publish timestamp with the moment the tracker first recorded the job, on the two platforms that report a reliable publish time. Platforms are anonymized.</p>
+<figure><img src="https://yashexe.github.io/assets/writing/medium/03-speed-table.png" alt="Detection latency: Platform A 98 postings, p50 3.4 min; Platform B 244 postings, p50 3.5 min; both 342 postings, p50 3.5 min, 86% within 10 minutes"></figure>
+<p>To see what those minutes buy, I checked LinkedIn directly. On one afternoon in September I took 17 postings the tracker had seen two to eight hours earlier and looked each one up. Eleven were listed, a median of about an hour and a half after the tracker saw them, and two of them four to five hours after; one was a tie, a company that posted to LinkedIn at the same moment. By the time I looked, 4 to 44 people had already applied or clicked apply on each listing, and one had drawn 39 within about two hours of appearing. I couldn't find the other six, mostly AI startups, on LinkedIn at all, even three to six hours later. LinkedIn shows only the hour a job was listed, so each gap is good to about half an hour, and 17 postings is a small sample.</p>
+<p>For additional context, a published test measured LinkedIn's alert emails at 31 hours after posting on average. The paid alert tool that ran the test measured its own at 8 minutes.¹</p>
+<blockquote>
+<p><strong>The difference between a few minutes and 8 is probably not meaningful. The difference between minutes and a day is the product.</strong></p>
+</blockquote>
+<h2>How it watches 12,441 companies</h2>
+<figure><img src="https://yashexe.github.io/assets/writing/medium/04-pipeline.png" alt="Weekly discovery, 12,441 live boards, polled every 5 minutes, 508,815 postings, filtered by title and location, alert email"><figcaption>Discovery runs weekly. Everything after it runs every five minutes.</figcaption></figure>
+<p>None of those applicant tracking systems publishes a list of its customers, so the tracker builds and maintains its own: 12,441 live boards, monitored continuously.</p>
+<p>Every five minutes the tracker checks every known board. That's 12,441 boards × 288 cycles, about 3.58 million board checks a day from one Raspberry Pi.</p>
+<p>Before the speed work, a cycle over 11,345 boards took 424 seconds. Two changes brought the core poll down to 29 seconds; the rest of today's 135 seconds is spent on purpose.</p>
+<figure><img src="https://yashexe.github.io/assets/writing/medium/05-cycle-table.png" alt="Cycle time from 424 seconds down to about 135 seconds"></figure>
+<p>Most of the speedup came from the boards themselves: almost none change in any five-minute window, so more than 99% of the boards that can answer "unchanged" do, with nothing to parse. The rest was a CPU problem disguised as a network one. On the Pi, the old HTTP client spent about 25 ms of CPU per request and pegged a core; one with a C parser does the same request in about 2.</p>
+<h2>What breaks</h2>
+<p>Fetching one job board takes a few lines of code. Everything around it is the actual system:</p>
+<ul>
+<li><strong>Which companies exist?</strong> No platform publishes a list of its customers.</li>
+<li><strong>Is this board still alive,</strong> or did the company move to another system?</li>
+<li><strong>Is this posting new,</strong> or a re-opened role that kept its old date?</li>
+<li><strong>Is it a repost</strong> of a role that didn't fill?</li>
+<li><strong>Is it one posting,</strong> or the same posting listed once per office?</li>
+<li><strong>Did that request fail</strong> because the board is gone, or because I'm being throttled?</li>
+</ul>
+<p>Each of those has been answered wrong at some point, and every wrong answer either floods the inbox or silently drops a job. Three of those failures, from the logs:</p>
+<div class="incident">
+<h3>Throttling that looked like deleted boards</h3>
+<ul>
+<li><strong>What happened.</strong> One platform's CDN rate-limits by IP and answers with a plain 403, no Retry-After. The tracker read any 4xx as "this board no longer exists," and it stamped failed boards with the newest timestamp, which sorted them to the tail of the next cycle, exactly where the throttle bit again. The log showed streaks of exactly five cycles with a near-constant failure count (34, 34, 26, 35, 35), then zero.</li>
+<li><strong>Why it hurt.</strong> Five strikes switched a board off until the weekly discovery pass revived it. Two passes in a row reactivated 335 and 285 boards: about 300 live boards a week sat blind for up to seven days, and about ten matching postings a week reached me days late.</li>
+<li><strong>Fix.</strong> Failures now split into gone and transient, and only a definitive "does not exist" counts toward switching a board off. A transient failure writes nothing, so the board is retried at the front of the next cycle instead of the back. A rate limiter keeps that platform under its budget.</li>
+<li><strong>Result.</strong> In the first 370 cycles after the fix, not one request was throttled, and only four cycles saw any transient failure.</li>
+</ul>
+</div>
+<div class="incident">
+<h3>The 29-hour freeze</h3>
+<ul>
+<li><strong>What happened.</strong> The Pi's WiFi dropped in the middle of sending an alert email. The OS never errored the socket, so the mail client waited forever, while holding the lock that keeps runs from overlapping.</li>
+</ul>
+<figure><img src="https://yashexe.github.io/assets/writing/medium/06-the-29-hour-freeze.png" alt="WiFi drops mid-send, the socket never errors, the mail client waits forever, the run lock stays held, about 60 scheduled runs exit quietly"></figure>
+<ul>
+<li><strong>Why it hurt.</strong> For 29 hours every scheduled run found the lock held, assumed a run was in progress, and exited quietly: no alerts, no errors, just one line per skipped run in a log nobody was reading.</li>
+<li><strong>Fix.</strong> A timeout on every mail connection. A watchdog that aborts a stuck run through the normal failure path: one "tracker is BROKEN" email, lock released. And a cable instead of WiFi, whose flaky DNS was behind nearly every "suspected outage" in the log.</li>
+<li><strong>Result.</strong> A hung run now ends itself and says so, instead of silently holding the whole system for a day.</li>
+</ul>
+</div>
+<div class="incident">
+<h3>Re-opened roles that looked months old</h3>
+<ul>
+<li><strong>What happened.</strong> A freshness rule stops a newly discovered board's backlog from being emailed: anything published more than 14 days ago is skipped. One platform keeps the original publish date when a closed role is re-opened, so a re-opened posting looked months old.</li>
+<li><strong>Why it hurt.</strong> About 4% of matches were silently dropped, one of them a software engineering role at Anthropic in New York.</li>
+<li><strong>Fix.</strong> The age rule now applies only to a board that hasn't had a successful check in the past day, including one being checked for the first time. On a board checked five minutes ago, a posting the tracker hasn't seen is new by construction, whatever date it carries.</li>
+<li><strong>Result.</strong> Re-opened roles arrive like any other posting, and a new board's backlog still stays out of the inbox.</li>
+</ul>
+</div>
+<h2>What makes the alerts useful</h2>
+<p>The filter favors recall over precision, on purpose: a false positive costs a few seconds of reading, while a false negative can mean missing the job entirely. It understands New York and its boroughs, explicitly US-remote roles and a broad set of engineering titles. Adding the US-remote rule alone roughly doubled the matches: about 450 engineering postings a week that a New York-only filter had been dropping.</p>
+<p>Pay and funding stage come from the posting wherever it states them, and New York's pay transparency law puts a range in nearly every New York posting. Both are metadata for skimming, not authoritative company data. Reposts are flagged.</p>
+<h2>The dataset</h2>
+<p>Every posting ever seen is kept, 508,815 so far, and that's what makes reposts recognizable. The alert system accidentally became a historical record of hiring. It knows when each posting went up on any board it was already watching, so it can already answer questions like these:</p>
+<ul>
+<li>Which companies are hiring right now, and how fast?</li>
+<li>Which ones just started hiring?</li>
+<li>Which roles keep getting reposted?</li>
+</ul>
+<p>I haven't built anything on top of it yet.</p>
+<h2>Early access</h2>
+<p><strong>The tracker is fast enough now. The interesting question is whether anyone else wants the same unfair head start.</strong></p>
+<p>The expensive part already runs around the clock, and it already sees postings far beyond New York. You don't need another tracker, just another filter over the same stream: your titles, your city, your inbox. I'm looking for a small group of job seekers to try the first version. Email me the roles and the city you're after.</p>
+<p><a href="mailto:yashbhavsar3602@gmail.com?subject=Early%20access">Request early access →</a></p>
+<p>Building something where minutes matter? I'd like to hear about it too: <a href="https://www.linkedin.com/in/yash-bhav">LinkedIn</a> or <a href="https://github.com/yashexe">GitHub</a>.</p>
+<p>The latency breakdown by platform, how the company list is built, three more failures and what I learned are in the <a href="https://yashexe.github.io/writing/job-boards-raspberry-pi/">full version on my site</a>.</p>
+<h3>Sources</h3>
+<ul>
+<li>¹ The same test measured Indeed's alerts at 18 hours, Glassdoor's at 28 and Google Jobs' at 42, all averages. Developer job-data feeds mostly state refresh cycles of 1 to 24 hours.</li>
+<li><a href="https://scoutify.com/blog/best-instant-job-alert-tool/">Job alert speed test, 50 postings</a>: the LinkedIn, Indeed, Glassdoor and Google Jobs alert figures and the paid-tool figures</li>
+<li>LinkedIn listing times and apply counts: read from LinkedIn job pages, September 2026</li>
+<li>Feed freshness: the vendors' own API pages, September 2026</li>
+</ul>
+</article></body></html>
