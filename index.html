@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css?v=20260923b">
 
     <!-- Set theme before first paint to avoid a flash of the wrong theme -->
     <script>
@@ -78,6 +78,7 @@
             <span class="nav__logo-text">Yash Bhavsar</span>
         </a>
         <nav class="nav__links" aria-label="Primary">
+            <a href="#writing"><span class="nav__num">00</span> Writing</a>
             <a href="#work"><span class="nav__num">01</span> Work</a>
             <a href="#experience"><span class="nav__num">02</span> Experience</a>
             <a href="#about"><span class="nav__num">03</span> About</a>
@@ -106,6 +107,32 @@
                 <a class="link-mono" href="mailto:yashbhavsar3602@gmail.com">Email <span aria-hidden="true">↗</span></a>
                 <a class="link-mono link-mono--accent" href="./assets/personal/Yash_Bhavsar_Resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
             </div>
+        </section>
+
+        <!-- WRITING (featured) -->
+        <section class="feature" id="writing">
+            <a class="feature__card" href="writing/job-boards-raspberry-pi/" data-reveal>
+                <div class="feature__main">
+                    <p class="eyebrow"><span class="dot"></span>00 — Writing</p>
+                    <h2 class="feature__title">I wanted job alerts before everyone else. So I built my own.</h2>
+                    <p class="feature__desc">
+                        Watching 12,441 company career boards from a Raspberry Pi. New postings are detected
+                        a median of 3.5 minutes after they go live; in a spot check, LinkedIn listed them about an hour and a half later.
+                        What it does, how fast, and everything that broke.
+                    </p>
+                    <span class="feature__cta link-mono link-mono--accent">Read the write-up <span aria-hidden="true">→</span></span>
+                </div>
+                <dl class="feature__stats" aria-label="Key numbers from the write-up">
+                    <div class="feature__stat">
+                        <dt>median detection time</dt>
+                        <dd>3.5 min</dd>
+                    </div>
+                    <div class="feature__stat">
+                        <dt>career boards, one Raspberry&nbsp;Pi</dt>
+                        <dd>12,441</dd>
+                    </div>
+                </dl>
+            </a>
         </section>
 
         <!-- WORK -->
@@ -216,9 +243,8 @@
                     </li>
                 </ul>
             </div>
-        </section>
+                </section>
 
-        <!-- EXPERIENCE -->
         <section class="section" id="experience">
             <div class="section__head" data-reveal>
                 <p class="eyebrow">02 — Experience</p>

@@ -1,0 +1,371 @@
+/* ============================================================
+   Writing — long-form post layout, on the same tokens as style.css
+   ============================================================ */
+
+.post {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vh, 6rem) var(--pad) clamp(3rem, 8vh, 5rem);
+}
+.post__head { max-width: 62rem; }
+.post__title {
+  font-size: clamp(2.1rem, 1.2rem + 3.8vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  margin: 1.2rem 0 1.1rem;
+  max-width: 20ch;
+}
+.post__meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+}
+.post__body {
+  max-width: 70ch;
+  margin-top: 2.8rem;
+  font-size: clamp(1.02rem, 1rem + 0.25vw, 1.15rem);
+  line-height: 1.7;
+}
+.post__body h2 {
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 3.2rem 0 1rem;
+}
+.post__body h2::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 1rem;
+}
+.post__body h3 {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 2.6rem 0 0.8rem;
+}
+.post__body p { margin: 0 0 1.25rem; }
+.post__body p:first-child {
+  font-size: 1.1em;
+  color: var(--text);
+}
+.post__body strong { color: var(--text); }
+.post__body a {
+  color: var(--text);
+  border-bottom: 1px solid var(--border-strong);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.post__body a:hover { color: var(--accent); border-color: var(--accent); }
+.post__body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.4rem;
+}
+.post__body li {
+  position: relative;
+  padding-left: 1.3rem;
+  margin: 0.55rem 0;
+}
+.post__body li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+.post__body code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05em 0.35em;
+}
+
+/* Tables may run wider than the prose column, up to the container. */
+.table-wrap {
+  width: min(62rem, 100%);
+  overflow-x: auto;
+  margin: 1.3rem 0 1.9rem;
+  -webkit-overflow-scrolling: touch;
+}
+.post__body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.post__body th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--muted);
+  text-align: left;
+  padding: 0.55rem 0.8rem 0.55rem 0;
+  border-bottom: 1px solid var(--border-strong);
+  white-space: nowrap;
+}
+.post__body td {
+  padding: 0.6rem 0.8rem 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+.post__body td:first-child { font-family: var(--font-mono); font-size: 0.84rem; white-space: nowrap; }
+.post__body tr:hover td { background: color-mix(in srgb, var(--bg-elev) 70%, transparent); }
+@media (max-width: 720px) {
+  .post__body td:first-child { white-space: normal; }
+  .post__body th { white-space: normal; }
+  .post__body th,
+  .post__body td { padding-right: 0.55rem; }
+  .post__body table { font-size: 0.86rem; }
+  .post__body td:first-child { font-size: 0.8rem; }
+}
+
+/* Discovery flow diagram (inline SVG) */
+.flow {
+  display: block;
+  width: min(62rem, 100%);
+  height: auto;
+  margin: 1.2rem 0 0.4rem;
+}
+.flow__box { fill: var(--bg-elev); stroke: var(--border-strong); stroke-width: 1.2; }
+.flow__box--db { stroke: var(--accent); }
+.flow__text { fill: var(--text); font-family: var(--font-mono); font-size: 12.5px; }
+.flow__text--sub { fill: var(--muted); font-size: 11.5px; }
+.flow__arrow { stroke: var(--muted); stroke-width: 1.4; fill: none; }
+.flow__head { fill: var(--muted); }
+.flow__caption { color: var(--muted); font-size: 0.9rem; font-family: var(--font-mono); margin-bottom: 1.6rem; }
+
+.post__foot {
+  margin-top: 3.5rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.75rem;
+}
+
+/* Header: dek + stat tiles */
+.post__dek {
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  color: var(--muted);
+  margin: 0 0 1.1rem;
+  max-width: 46ch;
+}
+.post__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 2.2rem 0 0;
+  max-width: 48rem;
+}
+.post__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-elev);
+}
+.post__stat dd {
+  order: -1;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(1.35rem, 1rem + 1.2vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+}
+.post__stat dt {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Pull quote */
+.post__body blockquote {
+  margin: 2rem 0;
+  padding: 0.4rem 0 0.4rem 1.4rem;
+  border-left: 3px solid var(--accent);
+}
+.post__body blockquote p {
+  margin: 0;
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.45rem);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+/* Sample email */
+.post__body pre {
+  width: min(62rem, 100%);
+  margin: 1.2rem 0 1.6rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.post__body pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+
+/* Incident cards */
+.incident {
+  margin: 1.2rem 0 1.4rem;
+  padding: 1.3rem 1.4rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-elev);
+}
+.post__body .incident h3 {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--text);
+}
+.incident ul { margin: 0 0 0.9rem; }
+.post__body .incident li { padding-left: 0; margin: 0.5rem 0; font-size: 0.97em; }
+.post__body .incident li::before { content: none; }
+.post__body .incident li strong {
+  margin-right: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.incident .flow { margin: 0.4rem 0 0.8rem; }
+
+/* Diagram variants: a wide layout, and a stacked one for phones */
+.flow--tall { display: none; }
+.flow--narrow { width: min(25rem, 100%); }
+.flow__label { fill: var(--muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; }
+@media (max-width: 720px) {
+  .flow--wide { display: none; }
+  .flow--tall { display: block; width: min(22.5rem, 100%); }
+  .post__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .post__stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* Email card: the sample alert, framed like a message */
+.email {
+  width: min(62rem, 100%);
+  margin: 1.3rem 0 1.4rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--bg-elev);
+  overflow: hidden;
+  box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.45);
+}
+.email__head {
+  padding: 0.8rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.email__row { display: flex; gap: 0.8rem; align-items: baseline; padding: 0.15rem 0; }
+.email__k { width: 4.5rem; flex: none; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.68rem; color: var(--faint); }
+.email__subject { color: var(--text); font-weight: 700; }
+.email__when { margin-left: auto; color: var(--faint); }
+.post__body .email pre.email__body {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 1rem 1.25rem 1.2rem;
+}
+
+/* Early access button */
+.cta-wrap { margin: 1.6rem 0 1.8rem; }
+.post__body a.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.35rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.post__body a.cta:hover {
+  color: var(--accent-ink);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px -6px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.post__body a.cta span { transition: transform 0.2s ease; }
+.post__body a.cta:hover span { transform: translateX(3px); }
+
+/* Technical details: collapsed by default */
+details.tech {
+  margin: 3.2rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-elev);
+}
+details.tech > summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.1rem 1.3rem 1.1rem 3rem;
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+}
+details.tech > summary::-webkit-details-marker { display: none; }
+details.tech > summary::before {
+  content: "+";
+  position: absolute;
+  left: 1.25rem;
+  top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+details.tech[open] > summary::before { content: "−"; }
+details.tech[open] > summary { border-bottom: 1px solid var(--border); }
+.tech__label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.tech__hint { color: var(--muted); font-size: 0.92rem; }
+.tech__body { padding: 0.2rem 1.3rem 1rem; }
+.tech__body > h3:first-child { margin-top: 1.4rem; }
+.tech .incident { background: var(--bg); }
+@media (prefers-reduced-motion: reduce) {
+  .post__body a.cta:hover, .post__body a.cta:hover span { transform: none; }
+}
+
