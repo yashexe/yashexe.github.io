@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>I wanted job alerts before everyone else. So I built my own. — Yash Bhavsar</title>
-    <meta name="description" content="A job alert system that sees new postings a median of 3.5 minutes after they are published, about an hour and a half before LinkedIn listed them in a spot check, on a single Raspberry Pi. What it does, how fast, and everything that broke.">
+    <meta name="description" content="A job alert system that sees new postings a median of 3.0 minutes after they are published, about an hour and a half before LinkedIn listed them in a spot check, on a single Raspberry Pi. What it does, how fast, and everything that broke.">
     <meta name="author" content="Yash Bhavsar">
     <link rel="canonical" href="https://yashexe.github.io/writing/savitar/">
 
@@ -15,16 +15,16 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://yashexe.github.io/writing/savitar/">
     <meta property="og:title" content="I wanted job alerts before everyone else. So I built my own.">
-    <meta property="og:description" content="New job postings a median of 3.5 minutes after they go live, about an hour and a half before LinkedIn listed them in a spot check, from a Raspberry Pi. What it does and everything that broke.">
+    <meta property="og:description" content="New job postings a median of 3.0 minutes after they go live, about an hour and a half before LinkedIn listed them in a spot check, from a Raspberry Pi. What it does and everything that broke.">
     <meta property="og:image" content="https://yashexe.github.io/assets/writing/savitar-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="627">
-    <meta property="og:image:alt" content="Savitar. I wanted job alerts before everyone else. So I built my own. 3.5 min median detection time, 12,441 career boards monitored.">
+    <meta property="og:image:alt" content="Savitar. I wanted job alerts before everyone else. So I built my own. 3.0 min median detection time, 12,441 career boards monitored.">
     <meta property="article:published_time" content="2026-09-23">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://yashexe.github.io/assets/writing/savitar-card.png">
     <meta name="twitter:title" content="I wanted job alerts before everyone else. So I built my own.">
-    <meta name="twitter:description" content="New job postings a median of 3.5 minutes after they go live, from a Raspberry Pi. What it does and everything that broke.">
+    <meta name="twitter:description" content="New job postings a median of 3.0 minutes after they go live, from a Raspberry Pi. What it does and everything that broke.">
 
     <link rel="icon" href="../../assets/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
@@ -87,16 +87,16 @@
                 <p class="eyebrow"><span class="dot"></span>Savitar · September 2026</p>
                 <h1 class="post__title">I wanted job alerts before everyone else. So I built my own.</h1>
                 <p class="post__dek">Watching 12,441 company career boards from a Raspberry Pi.</p>
-                <p class="post__meta"><span>Yash Bhavsar</span><span>8 min read</span></p>
+                <p class="post__meta"><span>Yash Bhavsar</span><span>9 min read</span></p>
                 <dl class="post__stats" aria-label="Key numbers">
-                    <div class="post__stat"><dt>median detection time</dt><dd>3.5 min</dd></div>
+                    <div class="post__stat"><dt>median detection time</dt><dd>3.0 min</dd></div>
                     <div class="post__stat"><dt>career boards monitored</dt><dd>12,441</dd></div>
                     <div class="post__stat"><dt>postings tracked</dt><dd>508K+</dd></div>
                 </dl>
             </header>
             <div class="post__body">
 <p>A cold application sent a day after a posting goes live joins a pile. Sent in the first hour, it's near the top of it. Every job alert I tried arrived hours or a day late, so I built one that doesn't.</p>
-<p>It watches 12,441 company career boards from a Raspberry Pi in my apartment, checks every one of them every five minutes, and has run unattended since June. A matching posting is detected a median of 3.5 minutes after the company publishes it, and the alert follows within a couple of minutes.</p>
+<p>It watches 12,441 company career boards from a Raspberry Pi in my apartment, checks every one of them every five minutes, and has run unattended since June. A new posting is detected a median of 3.0 minutes after the company publishes it, and the alert follows within a couple of minutes.</p>
 <p>The interesting part was never fetching job postings. It was keeping a system reliable when it depends on twelve thousand sources it doesn't control, any of which can throttle it, go down, or report a brand-new posting as months old.</p>
 <h2>Why job alerts are slow</h2>
 <p>Most startups don't run their own careers site. They rent one from an applicant tracking system, and a handful of those systems host the career boards of nearly every venture-backed company I care about. LinkedIn, Indeed and the aggregators get their copies downstream of those boards, on their own schedule.</p>
@@ -127,7 +127,7 @@ Solutions Engineer @ Corvane AI — $150,000 – $185,000
 <p>Want these for your own job search? I'm looking for a few people to try it first.</p>
 <p class="cta-wrap"><a class="cta" href="mailto:yashbhavsar3602@gmail.com?subject=Early%20access&amp;body=Roles%3A%20%0ACity%3A%20">Request early access <span aria-hidden="true">→</span></a></p>
 <h2>How fast it is</h2>
-<p>The tracker detects a matching posting a median of 3.5 minutes after the company publishes it. That's measured on 342 matching postings over four days in September 2026, by comparing the platform's own publish timestamp with the moment the tracker first recorded the job, on the two platforms that report a reliable publish time. Platforms are anonymized.</p>
+<p>The tracker detects a new posting a median of 3.0 minutes after the company publishes it. That's measured on 19,638 postings published between August 29, when the current five-minute schedule began, and September 26, 2026, by comparing the platform's own publish timestamp with the moment the tracker first recorded the job, on the two platforms that report a reliable publish time. Platform B's figures come from a random sample of 600 of its boards. Postings whose publish time changed after the tracker saw them, and re-opened roles that keep their original date, are left out. Platforms are anonymized.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -142,27 +142,27 @@ Solutions Engineer @ Corvane AI — $150,000 – $185,000
 <tbody>
 <tr>
 <td>Platform A</td>
-<td>98</td>
-<td>3.4 min</td>
-<td>5.7 min</td>
-<td>96%</td>
-<td>97%</td>
+<td>13,393</td>
+<td>3.2 min</td>
+<td>5.2 min</td>
+<td>98%</td>
+<td>99%</td>
 </tr>
 <tr>
 <td>Platform B</td>
-<td>244</td>
-<td>3.5 min</td>
-<td>34 min</td>
-<td>83%</td>
-<td>89%</td>
+<td>6,245</td>
+<td>2.7 min</td>
+<td>4.8 min</td>
+<td>97%</td>
+<td>98%</td>
 </tr>
 <tr>
 <td>Both</td>
-<td>342</td>
-<td>3.5 min</td>
-<td>26 min</td>
-<td>86%</td>
-<td>91%</td>
+<td>19,638</td>
+<td>3.0 min</td>
+<td>5.1 min</td>
+<td>98%</td>
+<td>99%</td>
 </tr>
 </tbody>
 </table></div>
@@ -268,7 +268,7 @@ Solutions Engineer @ Corvane AI — $150,000 – $185,000
 <p>Building something where minutes matter? I'd like to hear about it too: <a href="https://www.linkedin.com/in/yash-bhav">LinkedIn</a> or <a href="https://github.com/yashexe">GitHub</a>.</p>
 <details class="tech"><summary><span class="tech__label">Technical details</span><span class="tech__hint">The latency breakdown, the discovery outage, three more failures, and what I learned.</span></summary><div class="tech__body">
 <h3>Latency by platform</h3>
-<p>Platform A's number is essentially the schedule: each board is checked every five minutes, so a new posting waits two and a half minutes on average, with the platform's own edge cache adding up to about a minute on top. Platform B's slower tail is mostly on its side. Seven of its slowest postings were late because of a bug of mine, since fixed, but even without them about 14% of its postings took more than ten minutes to appear. Its responses aren't served from a cache, so its publish timestamp is probably set before a posting reaches the public board. The other platforms weren't part of this measurement.</p>
+<p>Both numbers are essentially the schedule: each board is checked every five minutes, so a new posting waits two and a half minutes on average, and Platform A's own cache adds up to about a minute on top. The median stayed between 3.0 and 3.1 minutes in every full week measured. The slowest 1% of postings took up to 41 minutes on Platform A and 81 on Platform B. Platforms that record only when a posting was created, or no time at all, are left out.</p>
 <h3>The company list</h3>
 <p>A weekly discovery pass over a public, web-scale dataset produces candidate boards, and each one is checked against the live board before it's stored. The list holds 12,441 live boards, and the weekly pass now adds only one to three a week. An outside check says it's close to complete for the companies I care about: of the boards on those systems linked from three months of Hacker News "Who is hiring" threads, 87% were already on it, and the few live ones it lacked had no matching roles.</p>
 <p>The list didn't start saturated. One deeper discovery pass in August found 1,466 live boards the weekly pass had never seen, Mistral AI, Whoop, Wayve and Riot Games among them. At least one live board never appears in the public dataset at all and was added by hand.</p>
